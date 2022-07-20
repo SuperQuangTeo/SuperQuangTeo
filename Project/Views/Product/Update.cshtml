@@ -25,8 +25,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item"><a class="nav-link active" href="/Home/Index">Products</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#!">Categoties</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#!">Brands</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/Category/List">Categoties</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/Brand/List">Brands</a></li>  
                     
                 </ul>
                 
@@ -38,7 +38,7 @@
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
                 <h1 class="display-4 fw-bolder">Gaming Gear Shop</h1>
-                <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+                <p class="lead fw-normal text-white-50 mb-0">Evolve your gaming experience</p>
             </div>
         </div>
     </header>
@@ -46,34 +46,38 @@
     <section class="py-5">
         <div class="container px-4 px-lg-5 mt-5">
             <form method="Post" action="/Product/DoUpdate">
-                <table>
+                
                 Id: 
-                <input type="hidden" value="@Model.Id" />@Model.Id
+                <input type="hidden" class="form-control" value="@Model.Id" name="newPro.Id"/>@Model.Id
                 <br>
                 Name: 
-                <input type="text" value="@Model.Name" />
+                <input type="text" class="form-control" value="@Model.Name" name = "newPro.Name" />
                 <br>
                 Description: 
-                <textarea  rows="4" cols="50" >@Model.Description</textarea>
+                <textarea class="md-textarea form-control" rows="4" cols="50" name="newPro.Description">@Model.Description</textarea>
                 <br>
                 Quantity:
-                <input type="number"  value=@Model.Quantity min=1 />
+                <input type="number" class="form-control" value=@Model.Quantity min=1 name="newPro.Quantity"/>
                 <br>
-                Price: <input type="number" step="any" value=@Model.Price />
+                Price: <input class="form-control" type="number" step="any" value=@Model.Price name="newPro.Price"/>
                 <br />
                 Status:
-                <input type="radio"  value=1 @(Model.Status == 1 ? "checked" : "") /> Còn Hàng
-                <input type="radio"  value=2 @(Model.Status == 2 ? "checked" : "") /> Hết Hàng
+                <input type="radio" name="newPro.Status" value=1 @(Model.Status == 1 ? "checked" : "") /> Còn Hàng
+                <input type="radio" name="newPro.Status" value=2 @(Model.Status == 2 ? "checked" : "") /> Hết Hàng
                 <br>
                 Brand
-                    <select id="BrandId" name="newPro.BrandId">
+                    <select class="form-control" id="BrandId" name="newPro.BrandId">
                         @foreach(Brand br in ViewBag.Brand)
                         {
-                            <option value="@br.Id">@br.Name</option>
+                            <option value="@br.Id" @(Model.BrandId == br.Id ? "selected" : "")>@br.Name</option>
                         }
                         
                     </select>
-            </table>
+                    <br />
+                    Image:                   
+                    <input type="file" accept="image/*" name="newPro.Image" value=@Model.Image/>
+                    <br />
+            
                 <input type="submit" value="Update" name="submit" />
             </form>
 

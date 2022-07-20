@@ -25,8 +25,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item"><a class="nav-link active" href="/Home/Index">Products</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#!">Categoties</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#!">Brands</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/Category/List">Categoties</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/Brand/List">Brands</a></li>  
                     
                 </ul>
                 
@@ -38,7 +38,7 @@
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
                 <h1 class="display-4 fw-bolder">Gaming Gear Shop</h1>
-                <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+                <p class="lead fw-normal text-white-50 mb-0">Evolve your gaming experience</p>
             </div>
         </div>
     </header>
@@ -48,31 +48,37 @@
             <form method="Post" action="/Product/DoAdd">
                 <table>                   
                     Name
-                    <input type="text" name="newPro.Name" />
+                    <input class="form-control" type="text" name="newPro.Name" required/>
                     <br>
                     Description
-                    <textarea name="newPro.Description" rows="4" cols="50"></textarea>
+                    <textarea class="md-textarea form-control" name="newPro.Description" rows="4" cols="50"></textarea>
                     <br>
                     Quantity
-                    <input type="number" name="newPro.quantity" value=1 min=1/>
+                    <input class="form-control" type="number" name="newPro.quantity" value=1 min=1/>
                     <br>
                     Price
-                    <input type="number" name="newPro.Price" value=10 step="any"/>
+                    <input class="form-control" type="number" name="newPro.Price" value=10 step="any"/>
                     <br>
                     Status
                     <input type="radio" name="newPro.status" value=1 checked/> Còn Hàng
                     <input type="radio" name="newPro.status" value=2 /> Hết Hàng
                     <br>
                     Brand
-                    <select id="BrandId" name="newPro.BrandId">
+                    <select class="form-control" id="BrandId" name="newPro.BrandId">
                         @foreach(Brand br in ViewBag.Brand)
                         {
                             <option value="@br.Id">@br.Name</option>
                         }
                         
                     </select>
+                    <br />
+                    
+                    Image:                   
+                    <input type="file" accept="image/*" name="newPro.Image"/>
+                    <br />
+                    
                 </table>
-                <input type="submit" value="Add" name="submit" />
+                <input class="btn btn-primary" type="submit" value="Add" name="submit" />
             </form>
 
 

@@ -13,9 +13,4 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Categories\" />
-    <Folder Include="Views\Brands\" />
-  </ItemGroup>
-
 </Project>

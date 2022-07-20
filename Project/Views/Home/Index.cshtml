@@ -25,9 +25,9 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                     <li class="nav-item"><a class="nav-link active" href="/Home/Index">Products</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#!">Categoties</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#!">Brands</a></li>                    
-                </ul>               
+                    <li class="nav-item"><a class="nav-link active" href="/Category/List">Categoties</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/Brand/List">Brands</a></li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -36,16 +36,17 @@
         <div class="container px-4 px-lg-5 my-5">
             <div class="text-center text-white">
                 <h1 class="display-4 fw-bolder">Gaming Gear Shop</h1>
-                <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+                <p class="lead fw-normal text-white-50 mb-0">Evolve your gaming experience</p>
             </div>
         </div>
     </header>
     <!-- Section-->
     <section class="py-5">
         <div class="container px-4 px-lg-5 mt-5">
-            Click <a href="/Product/Add">Here</a> to add Product
-            <form action="/Home/Index" method="post">
-                    <select name="id" onchange="this.form.submit();">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <p>Click <a class="btn btn-outline-primary" href="/Product/Add">Here</a> to add Product</p>
+                <form style="margin-left:50%" action="/Home/Index" method="post">
+                    <select class="form-control" name="id" onchange="this.form.submit();">
                         <option value="0" @(ViewBag.CurBrand==0?"selected":"")>All Brand</option>
                         @foreach (Brand b in ViewBag.Brand)
                         {
@@ -53,7 +54,10 @@
                         }
                     </select>
                 </form>
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">               
+                
+            </nav>
+
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 @if (Model.Count == 0)
                 {
                     <h3>No product here</h3>
@@ -65,35 +69,39 @@
                         <div class="col mb-5">
                             <div class="card h-100">
                                 <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                        <img class="card-img-top"  src="@p.Image" alt="..." />
                                 <!-- Product details-->
                         <div class="card-body p-4">
                                     <div class="text-center">
                                         <!-- Product name-->
                                 <h5 class="fw-bolder">@p.Name</h5>
                                         <!-- Product price-->
-                                        @p.Price $$$
-                                        @if(@p.Status == 1){
-                                            <p>Còn Hàng</p>
+                                @p.Price $$$
+                                        @if (@p.Status == 1)
+                                        {
+                                            <p style="color:#00FF00">Còn Hàng</p>
                                         }
-                                        @if(@p.Status == 2){
-                                            <p>Hết Hàng</p>
+                                        @if (@p.Status == 2)
+                                        {
+                                            <p style="color:red">Hết Hàng</p>
                                         }
                                     </div>
                                 </div>
                                 <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/Product/Detail/@p.Id">View Details</a></div>
+                                    <div class="text-center"><a class="btn btn-outline-info" href="/Product/Detail/@p.Id">View Details</a></div>
                                 </div>
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="/Product/Update/@p.Id">Update</a>
-                                        <a class="btn btn-outline-dark mt-auto" href="/Product/DoRemove/@p.Id">Delete</a></div>
+                                    <div class="text-center">
+                                        <a class="btn btn-outline-success" href="/Product/Update/@p.Id">Update</a>
+                                        <a class="btn btn-outline-danger" href="/Product/DoRemove/@p.Id">Delete</a>
+                                    </div>
                                 </div>
-                                
+
                             </div>
                         </div>
                     }
-                }               
+                }
             </div>
         </div>
     </section>

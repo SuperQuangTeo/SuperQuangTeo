@@ -14,7 +14,7 @@ namespace Project.Controllers
         public IActionResult Add()
         {
             BrandManager br = new BrandManager();
-            List<Brand> brand = br.getBrand();
+            List<Brand> brand = br.getBrands();
             ViewBag.Brand = brand;
             return View();
         }
@@ -24,7 +24,7 @@ namespace Project.Controllers
             ProductManager pro = new ProductManager();
             BrandManager br = new BrandManager();
             List<Product> product = pro.GetProducts1(0);
-            List<Brand> brand = br.getBrand();
+            List<Brand> brand = br.getBrands();
             ViewBag.Brand = brand;
             pro.AddProduct(newPro);
             return RedirectToAction("index","Home", product);
@@ -35,7 +35,7 @@ namespace Project.Controllers
             ProductManager pro = new ProductManager();
             BrandManager br = new BrandManager();
             Product product = pro.GetProduct1(Id);
-            List<Brand> brand = br.getBrand();
+            Brand brand = br.getBrand(product.BrandId);
             ViewBag.Brand = brand;
             return View(product);
         }
@@ -45,7 +45,7 @@ namespace Project.Controllers
             ProductManager pro = new ProductManager();
             BrandManager br = new BrandManager();
             List<Product> product = pro.GetProducts1(0);
-            List<Brand> brand = br.getBrand();
+            List<Brand> brand = br.getBrands();
             ViewBag.Brand = brand;
             pro.DeleteProduct(Id);
             return RedirectToAction("index", "Home", product);
@@ -56,19 +56,19 @@ namespace Project.Controllers
             BrandManager br = new BrandManager();
             ProductManager pro = new ProductManager();
             Product product = pro.GetProduct(Id);
-            List<Brand> brand = br.getBrand();
+            List<Brand> brand = br.getBrands();
             ViewBag.Brand = brand;
             return View(product);
         }
 
-        public IActionResult DoUpdate(Product UpdatePro,int Id)
+        public IActionResult DoUpdate(Product newPro)
         {
             ProductManager pro = new ProductManager();
             BrandManager br = new BrandManager();
             List<Product> product = pro.GetProducts(0);
-            List<Brand> brand = br.getBrand();
+            List<Brand> brand = br.getBrands();
             ViewBag.Brand = brand;
-            pro.UpdateProduct(UpdatePro,Id);
+            pro.UpdateProduct(newPro);
             return RedirectToAction("index", "Home", product);
         }
     }

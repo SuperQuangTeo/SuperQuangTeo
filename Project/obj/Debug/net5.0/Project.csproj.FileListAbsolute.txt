@@ -77,3 +77,9 @@ E:\PRN_Se1619\PRN_Project\Project\obj\Debug\net5.0\Project.Views.pdb
 E:\PRN_Se1619\PRN_Project\Project\obj\Debug\net5.0\Razor\Views\Product\Add.cshtml.g.cs
 E:\PRN_Se1619\PRN_Project\Project\obj\Debug\net5.0\Razor\Views\Product\Detail.cshtml.g.cs
 E:\PRN_Se1619\PRN_Project\Project\obj\Debug\net5.0\Razor\Views\Product\Update.cshtml.g.cs
+E:\PRN_Se1619\PRN_Project\Project\obj\Debug\net5.0\Razor\Views\Category\List.cshtml.g.cs
+E:\PRN_Se1619\PRN_Project\Project\obj\Debug\net5.0\Razor\Views\Brand\List.cshtml.g.cs
+E:\PRN_Se1619\PRN_Project\Project\obj\Debug\net5.0\Razor\Views\Category\Add.cshtml.g.cs
+E:\PRN_Se1619\PRN_Project\Project\obj\Debug\net5.0\Razor\Views\Brand\Add.cshtml.g.cs
+E:\PRN_Se1619\PRN_Project\Project\obj\Debug\net5.0\Razor\Views\Category\Update.cshtml.g.cs
+E:\PRN_Se1619\PRN_Project\Project\obj\Debug\net5.0\Razor\Views\Brand\Update.cshtml.g.cs
